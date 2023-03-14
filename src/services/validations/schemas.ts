@@ -8,6 +8,6 @@ export const productSchema = Joi.object().keys({
 export const userSchema = Joi.object().keys({
   username: Joi.string().min(3).required(),
   vocation: Joi.string().min(3).required(),
-  level: Joi.number().required(),
-  password: Joi.string().min(5).required(),
+  level: Joi.number().min(1).required(),
+  password: Joi.string().min(8).required(),
 });
