@@ -1,3 +1,4 @@
+import camelize, { Camelize } from 'camelize-ts';
 import ProductModel from '../models/product.model';
 import connection from '../models/connection';
 import { Product, ProductData } from '../interfaces/product.interface';
@@ -16,5 +17,11 @@ export default class ProductService {
     const newProduct = await this.model.create(product);
 
     return newProduct;
+  }
+
+  public async getAll(): Promise<Camelize<ProductData[]>> {
+    const products = await this.model.getAll();
+    
+    return camelize(products);
   }
 }
