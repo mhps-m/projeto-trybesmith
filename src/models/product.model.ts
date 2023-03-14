@@ -1,6 +1,6 @@
 // import camelize from 'camelize';
 import { Pool, ResultSetHeader } from 'mysql2/promise';
-import { Product, ProductData } from '../interfaces/products.interface';
+import { Product, ProductData } from '../interfaces/product.interface';
 
 export default class ProductModel {
   public connection: Pool;
