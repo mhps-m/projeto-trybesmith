@@ -5,3 +5,7 @@ export interface User {
   level: number
   password?: string
 }
+
+export interface WithUser {
+  user?: User
+}

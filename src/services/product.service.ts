@@ -3,7 +3,7 @@ import ProductModel from '../models/product.model';
 import connection from '../models/connection';
 import { Product, ProductData } from '../interfaces/product.interface';
 import validate from './validations/validate';
-import productSchema from './validations/schemas';
+import { productSchema } from './validations/schemas';
 
 export default class ProductService {
   public model: ProductModel;
