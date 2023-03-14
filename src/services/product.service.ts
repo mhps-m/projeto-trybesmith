@@ -1,6 +1,8 @@
 import ProductModel from '../models/product.model';
 import connection from '../models/connection';
 import { Product, ProductData } from '../interfaces/product.interface';
+import validate from './validations/validate';
+import productSchema from './validations/schemas';
 
 export default class ProductService {
   public model: ProductModel;
@@ -10,6 +12,7 @@ export default class ProductService {
   }
 
   public async create(product: Product): Promise<ProductData> {
+    validate(product, productSchema);
     const newProduct = await this.model.create(product);
 
     return newProduct;
