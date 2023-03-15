@@ -1,4 +1,4 @@
-import jwt, { Secret, SignOptions } from 'jsonwebtoken';
+import jwt, { JwtPayload, Secret, SignOptions } from 'jsonwebtoken';
 import createHttpError from 'http-errors';
 
 const secret: Secret = process.env.JWT_SECRET || 'suaSenhaSecreta';
@@ -12,16 +12,16 @@ export const createToken = <T>(payload: T & (object | string)): string => {
   return token;
 };
 
-export const authenticateToken = (token: string): void => {
+export const authenticateToken = <T>(token: string): T => {
   if (!token) {
     throw new createHttpError.Unauthorized('Token not found');
   }
 
-  const decoded: void = jwt.verify(token, secret, (err, dec) => {
-    if (err) throw new createHttpError.Unauthorized('Expired or invalid token');
+  try {
+    const decoded: JwtPayload = jwt.verify(token, secret) as JwtPayload;
 
-    return dec;
-  });
-
-  return decoded;
+    return decoded as T;
+  } catch (err) {
+    throw new createHttpError.Unauthorized('Invalid token');
+  }
 };

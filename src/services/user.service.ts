@@ -20,7 +20,9 @@ export default class UserService {
 
     const newUser = await this.model.create(user);
 
-    const token = createToken<User>(newUser);
+    const { id, username, vocation, password } = newUser;
+
+    const token = createToken<User>({ id, username, vocation, password });
 
     return token;
   }
@@ -34,7 +36,9 @@ export default class UserService {
       throw new createHttpError.Unauthorized('Username or password invalid');
     }
 
-    const token = createToken<User>(getUser);
+    const { id, username, vocation, password } = getUser;
+
+    const token = createToken<User>({ id, username, vocation, password });
 
     return token;
   }
