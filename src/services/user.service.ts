@@ -1,7 +1,7 @@
 import createHttpError from 'http-errors';
 import UserModel from '../models/user.model';
 import connection from '../models/connection';
-import { User } from '../interfaces/user.interface';
+import { User, UserDetails } from '../interfaces/user.interface';
 import validate from './validations/validate';
 import { loginSchema, userSchema } from './validations/schemas';
 import { createToken } from '../auth/auth';
@@ -13,7 +13,7 @@ export default class UserService {
     validate(user, userSchema);
 
     const checkUsernameExists = await this.model.getByUsername(user.username);
-    
+
     if (checkUsernameExists) {
       throw new createHttpError.Conflict('Username already in use');
     }
@@ -22,7 +22,7 @@ export default class UserService {
 
     const { id, username, vocation, password } = newUser;
 
-    const token = createToken<User>({ id, username, vocation, password });
+    const token = createToken<UserDetails>({ id, username, vocation, password });
 
     return token;
   }
@@ -38,7 +38,7 @@ export default class UserService {
 
     const { id, username, vocation, password } = getUser;
 
-    const token = createToken<User>({ id, username, vocation, password });
+    const token = createToken<UserDetails>({ id, username, vocation, password });
 
     return token;
   }

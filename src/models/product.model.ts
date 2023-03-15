@@ -22,12 +22,30 @@ export default class ProductModel {
 
   public async getAll(): Promise<ProductData[]> {
     const result = await this.connection.execute<RowDataPacket[]>(`
-      SELECT id, name, amount, order_id
+      SELECT id, name, amount, order_id as orderId
       FROM Trybesmith.products;
     `);
 
     const [products] = result;
 
     return products as ProductData[];
+  }
+
+  public async getById(id: number): Promise<ProductData> {
+    const [[product]] = await this.connection.execute<RowDataPacket[]>(`
+      SELECT id, name, amount, order_id as orderId
+      FROM Trybesmith.products
+      WHERE id = ?
+    `, [id]);
+
+    return product as ProductData;
+  }
+
+  public async update(id: number, orderId: number) {
+    await this.connection.execute(`
+      UPDATE Trybesmith.products 
+      SET order_id = ?
+      WHERE id = ?
+    `, [orderId, id]);
   }
 }

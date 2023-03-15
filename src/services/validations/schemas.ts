@@ -16,3 +16,14 @@ export const loginSchema = Joi.object().keys({
   username: Joi.string().required(),
   password: Joi.string().required(),
 });
+
+export const productsIdsSchema = Joi.array().items(
+  Joi.number().min(1).required(),
+).required();
+
+export const orderSchema = Joi.object().keys({
+  productsIds: productsIdsSchema,
+}).required().messages({
+  'number.base': '"productsIds" must include only numbers',
+  'array.includesRequiredUnknowns': '"productsIds" must include only numbers',
+});

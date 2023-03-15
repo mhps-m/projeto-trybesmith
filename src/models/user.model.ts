@@ -1,5 +1,5 @@
 import { Pool, ResultSetHeader, RowDataPacket } from 'mysql2/promise';
-import { User } from '../interfaces/user.interface';
+import { User, UserDetails } from '../interfaces/user.interface';
 
 export default class UserModel {
   public connection: Pool;
@@ -8,7 +8,7 @@ export default class UserModel {
     this.connection = connection;
   }
 
-  public async getByUsername(username: string): Promise<User | undefined> {
+  public async getByUsername(username: string): Promise<UserDetails> {
     const result = await this.connection.execute<RowDataPacket[]>(`
       SELECT id, username, vocation, level, password
       FROM Trybesmith.users WHERE username = ?;
@@ -16,10 +16,10 @@ export default class UserModel {
 
     const [[user]] = result;
 
-    return { ...user } as User;
+    return user as UserDetails;
   }
 
-  public async create(user: User): Promise<User> {
+  public async create(user: User): Promise<UserDetails> {
     const { username, vocation, level, password } = user;
 
     const result = await this.connection.execute<ResultSetHeader>(`
