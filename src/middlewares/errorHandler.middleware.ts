@@ -7,7 +7,8 @@ export default async (
   res: Response,
   _next: NextFunction,
 ): Promise<Response> => {
-  const statusCode = isHttpError(err) ? err.statusCode : 500;
+  const statusCode: number = isHttpError(err) ? err.statusCode : 500;
 
+  console.log(err);
   return res.status(statusCode).json({ message: err.message });
 };

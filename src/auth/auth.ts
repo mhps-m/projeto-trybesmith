@@ -3,7 +3,7 @@ import createHttpError from 'http-errors';
 
 const secret: Secret = process.env.JWT_SECRET || 'suaSenhaSecreta';
 
-export const createToken = <T>(payload: T & (string | object)): string => {
+export const createToken = <T>(payload: T & (object | string)): string => {
   const options: SignOptions = {
     algorithm: 'HS256',
   };

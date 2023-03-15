@@ -16,7 +16,7 @@ export default class UserModel {
 
     const [[user]] = result;
 
-    return user as User;
+    return { ...user } as User;
   }
 
   public async create(user: User): Promise<User> {
