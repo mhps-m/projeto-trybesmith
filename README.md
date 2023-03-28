@@ -37,7 +37,7 @@ Clone o projeto para sua máquina:
   - Insira os dados para acessar o banco de dados nas varíaveis, além de uma chave "secret" para gerar seus tokens de validação
 
   > Rode o projeto:
-  - `$ npm start
+  - `$ npm start`
   
   
 </details></ br>
@@ -58,7 +58,7 @@ Clone o projeto para sua máquina:
   - Ele te dará acesso ao terminal interativo do container criado pelo compose, que está rodando em segundo plano.
 
   > Instale as dependências [**Caso existam**]:
-  - `$ npm i
+  - `$ npm i`
 
   Rode as queries contidas em *Trybesmith.sql* no servidor para criar e popular o banco de dados
   
