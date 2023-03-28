@@ -3,7 +3,7 @@
 
 O projeto Trybesmith se trata de uma API RESTful que implementa métodos para gerenciar uma loja de itens medievais! Você poderá ~forjar~ cadastrar itens e, após fazer login/cadastro, registrar pedidos no banco de dados. Tudo isso com as boas práticas de POO!
 
-Projeto realizado como parte da grade curricular do curso de Desenvolvimento Web da Trybe[](https://www.betrybe.com/)
+Projeto realizado como parte da grade curricular do curso de Desenvolvimento Web da [Trybe](https://www.betrybe.com/)
 
 ## Tecnologias utilizadas
 
@@ -233,4 +233,4 @@ Clone o projeto para sua máquina:
   ## Sobre mim
 
   Sou um desenvolvedor back-end júnior.
-   - LinkedIn[](https://www.linkedin.com/in/miguel-soares-dev/)
+   - [LinkedIn](https://www.linkedin.com/in/miguel-soares-dev/)
