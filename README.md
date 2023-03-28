@@ -70,17 +70,19 @@ Clone o projeto para sua máquina:
   <summary></summary></ br>
 
   #### :warning: Parâmetros devem ser passados pelo corpo/body da requisição caso não seja especificado :warning:
+
   ### Retorna todos os produtos
 
-  ```http
+  ```
     GET /products
   ```
 
   Retorna um array com todos os produtos cadastrados.
 
   Exemplo de resposta:
+  
+  `HTTP 200`
   ```json
-    # HTTP 200
     [
       {
         "id": 1,
@@ -96,10 +98,11 @@ Clone o projeto para sua máquina:
       }
     ]
   ```
-
+  <br></br>
+  
   ### Cadastra um produto
 
-  ```http
+  ```
     POST /products
   ```
 
@@ -111,8 +114,9 @@ Clone o projeto para sua máquina:
   Retorna o produto cadastrado e seu id.
 
   Exemplo de resposta:
+  
+  `HTTP 201`
   ```json
-    # HTTP 201
       {
         "id": 1,
         "name": "Poção de cura",
@@ -120,10 +124,11 @@ Clone o projeto para sua máquina:
         "orderId": null
       }
   ```
+  <br></br>
 
   ### Cadastra um novo usuário
 
-  ```http
+  ```
     POST /users
   ```
 
@@ -138,18 +143,17 @@ Clone o projeto para sua máquina:
 
   Exemplo de resposta:
 
+  `HTTP 201`
   ```json
-    # HTTP 201
     {
-      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.
-        eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.
-        SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
     }
   ```
+  <br></br>
 
   ### Faz login de um usuário
 
-  ```http
+  ```
     POST /login
   ```
 
@@ -162,26 +166,26 @@ Clone o projeto para sua máquina:
 
   Exemplo de resposta:
 
+  `HTTP 200`
   ```json
-    # HTTP 200
     {
-      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.
-        eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.
-        SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
     }
   ```
+  <br></br>
 
   ### Retorna todos os pedidos
 
-  ```http
+  ```
     GET /orders
   ```
 
   Retorna um array com todos os pedidos cadastrados.
 
   Exemplo de resposta:
+  
+  `HTTP 200`
   ```json
-    # HTTP 200
     [
       {
         "id": 1,
@@ -195,10 +199,11 @@ Clone o projeto para sua máquina:
       }
     ]
   ```
+  <br></br>
 
   ### Cadastra um novo pedido
 
-  ```http
+  ```
     POST /orders
   ```
 
@@ -213,8 +218,9 @@ Clone o projeto para sua máquina:
   Recebe IDs de produtos para serem relacionados ao novo pedido feito pelo usuário autenticado.
 
   Exemplo de resposta:
+  
+  `HTTP 201`
   ```json
-    # HTTP 201
     {
       "userId": 1,
       "productsIds": [1, 2]
